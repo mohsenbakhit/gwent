@@ -1,5 +1,6 @@
 #include <string>
 using namespace std;
+#pragma once
 enum Range {
     MELEE,
     RANGED,
@@ -19,12 +20,12 @@ class Card {
     private:
         string name_;
         uint8_t power_;
-        enum Range range_;
+        Range range_;
         string* ability_;
         bool is_special_;
         enum Faction faction_;
     public:
         Card();
-        Card(string name, uint8_t power, enum Range range, string* ability, bool is_special, enum Faction faction);
+        Card(string name, uint8_t power, Range range, string* ability, bool is_special, Faction faction);
         void trigger_ability();
 };
