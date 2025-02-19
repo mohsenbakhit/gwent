@@ -26,4 +26,5 @@ class Card {
     public:
         Card();
         Card(string name, uint8_t power, enum Range range, string* ability, bool is_special, enum Faction faction);
+        void trigger_ability();
 };

@@ -12,3 +12,7 @@ Card::Card(string name, uint8_t power, enum Range range, string *ability, bool i
     this->is_special_ = is_special;
     this->faction_ = faction;
 }
+
+void Card::trigger_ability() {
+    
+}
