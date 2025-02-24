@@ -33,7 +33,7 @@ class GameState {
         GameState();
         GameState(std::vector<Card>  player_deck, std::vector<Card>  opp_deck);
         uint16_t is_game_over();
-        void place_card(bool player, Card* card);
+        void place_card(bool player, const Card& card);
         void trigger_leader();
         uint16_t update_weather(uint16_t weather_effect);
         

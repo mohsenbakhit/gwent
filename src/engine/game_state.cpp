@@ -44,8 +44,15 @@ uint16_t GameState::is_game_over() {
     }
 }
 
-void GameState::place_card(bool player, Card* card) {
+void GameState::place_card(bool player, const Card& card) {
+    if (player) {
+        this->player_board[card.getRange()].push_back(card);
+        auto it = std::remove(this->player_hand.begin(), this->player_hand.end(), card);
+        this->player_hand.erase(it, this->player_hand.end());
+    }
+    else {
 
+    }
 }
 
 void GameState::trigger_leader() {
