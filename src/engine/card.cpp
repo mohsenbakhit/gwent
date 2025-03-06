@@ -1,11 +1,9 @@
 #include "card.hpp"
 
-#include <utility>
-
 Card::Card() {
     
 }
-Card::Card(string name, int16_t power, enum Range range, string *ability, bool is_special, enum Faction faction)
+Card::Card(std::string name, int16_t power, enum Range range, std::string *ability, bool is_special, enum Faction faction)
 {
     this->name_ = std::move(name);
     this->power_ = power;
@@ -15,6 +13,7 @@ Card::Card(string name, int16_t power, enum Range range, string *ability, bool i
     this->faction_ = faction;
 }
 
+// TODO: Implement this function
 void Card::trigger_ability() {
     
 }
@@ -27,7 +26,7 @@ int16_t Card::getPower() const {
     return this->power_;
 }
 
-string Card::getName() const {
+std::string Card::getName() const {
     return this->name_;
 }
 

@@ -1,9 +1,10 @@
+#ifndef GAME_STATE
+#define GAME_STATE
 #include <string>
 #include <map>
 #include <vector>
 #include "card.hpp"
-#pragma once
-
+#include "player.hpp"
 const int16_t BITING_FROST = 1; // 0b001
 const int16_t IMPENETRABLE_FOG = 2; // 0b010
 const int16_t TORRENTIAL_RAIN = 4; //0b100
@@ -28,13 +29,16 @@ class GameState {
         int16_t weather;
         int16_t player_score;
         int16_t opp_score;
-        std::map<string, int16_t> rounds_won;
+        std::map<std::string, int16_t> rounds_won;
     public:
         GameState();
         GameState(std::vector<Card>  player_deck, std::vector<Card>  opp_deck);
-        int16_t is_game_over();
+        bool is_game_over();
+        bool is_round_over();
         void place_card(bool player, const Card& card);
         void trigger_leader();
         int16_t update_weather(int16_t weather_effect);
         
 };
+
+#endif GAME_STATE

@@ -35,12 +35,12 @@ GameState::GameState(std::vector<Card> player_deck, std::vector<Card> opp_deck) 
     this->rounds_won = std::map<std::string, int16_t>{};
 }
 
-int16_t GameState::is_game_over() {
+bool GameState::is_game_over() {
     if (this->cur_round == 3) {
-        return (this->rounds_won["player"] == 2) ? 1 : 2;
+        return (this->rounds_won["player"] == 2);
     }
     else {
-        return -1;
+        return false;
     }
 }
 
@@ -66,4 +66,17 @@ int16_t GameState::update_weather(int16_t weather_effect) {
     }
     this->weather |= weather_effect;
     return this->weather;
+}
+
+bool GameState::is_round_over() {
+    if (this->player_passed && this->opp_passed) {
+        return true;
+    }
+    else if () {
+        return true;
+    }
+    else {
+        return false;
+    }
+
 }

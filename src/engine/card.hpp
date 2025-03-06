@@ -1,6 +1,6 @@
+#ifndef CARD
+#define CARD
 #include <string>
-using namespace std;
-#pragma once
 enum Range {
     MELEE,
     RANGED,
@@ -18,20 +18,21 @@ enum Faction {
 
 class Card {
     private:
-        string name_;
+        std::string name_;
         int16_t power_;
         Range range_;
-        string* ability_;
+        std::string* ability_;
         bool is_special_;
         Faction faction_;
     public:
-        Card();
-        Card(string name, int16_t power, Range range, string* ability, bool is_special, Faction faction);
+        [[maybe_unused]] Card();
+        Card(std::string name, int16_t power, Range range, std::string* ability, bool is_special, Faction faction);
         void trigger_ability();
         [[nodiscard]] Range getRange() const;
         [[nodiscard]] int16_t getPower() const;
-        [[nodiscard]] string getName() const;
+        [[nodiscard]] std::string getName() const;
         [[nodiscard]] bool isSpecial() const;
         [[nodiscard]] Faction getFaction() const;
         bool operator==(const Card& other) const;
 };
+#endif CARD
