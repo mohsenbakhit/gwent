@@ -5,7 +5,7 @@
 Card::Card() {
     
 }
-Card::Card(string name, int8_t power, enum Range range, string *ability, bool is_special, enum Faction faction)
+Card::Card(string name, int16_t power, enum Range range, string *ability, bool is_special, enum Faction faction)
 {
     this->name_ = std::move(name);
     this->power_ = power;
