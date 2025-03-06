@@ -16,7 +16,7 @@ GameState::GameState() {
 
     this->player_board = std::map<Range, std::vector<Card> >{};
     this->opp_board = std::map<Range, std::vector<Card> >{};
-    this->rounds_won = std::map<std::string, uint16_t>{};
+    this->rounds_won = std::map<std::string, int16_t>{};
 }
 
 GameState::GameState(std::vector<Card> player_deck, std::vector<Card> opp_deck) {
@@ -32,10 +32,10 @@ GameState::GameState(std::vector<Card> player_deck, std::vector<Card> opp_deck) 
 
     this->player_board = std::map<Range, std::vector<Card> >{};
     this->opp_board = std::map<Range, std::vector<Card> >{};
-    this->rounds_won = std::map<std::string, uint16_t>{};
+    this->rounds_won = std::map<std::string, int16_t>{};
 }
 
-uint16_t GameState::is_game_over() {
+int16_t GameState::is_game_over() {
     if (this->cur_round == 3) {
         return (this->rounds_won["player"] == 2) ? 1 : 2;
     }
@@ -59,7 +59,7 @@ void GameState::trigger_leader() {
 
 }
 
-uint16_t GameState::update_weather(uint16_t weather_effect) {
+int16_t GameState::update_weather(int16_t weather_effect) {
     if (weather_effect  == 0) {
         this->weather = 0;
         return 0;
